@@ -2,8 +2,7 @@
   display: block;
   color: inherit;
   text-decoration: none;
-  margin: 2em;
-  width: 600px;
+  width: 32vw;
   @media (--media-min-medium) {
     width: 300px;
   }

@@ -2,6 +2,8 @@
   display: block;
   color: inherit;
   text-decoration: none;
+  margin: 2em;
+  width: 400px;
 }
 
 .name {
@@ -12,6 +14,7 @@
   position: relative;
   padding-bottom: 66.666%;
   background: #eee;
+
 
   @nest & img {
     position: absolute;

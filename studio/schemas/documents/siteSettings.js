@@ -29,13 +29,6 @@ export default {
       options: {
         layout: "tags"
       }
-    },
-    {
-      name: "brewer",
-      type: "reference",
-      description: "Publiser en brygger.",
-      title: "Brygger",
-      to: [{ type: "person" }]
     }
   ]
 };

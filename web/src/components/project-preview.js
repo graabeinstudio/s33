@@ -1,23 +1,23 @@
-import {Link} from 'gatsby'
-import React from 'react'
-import {cn, buildImageObj} from '../lib/helpers'
-import {imageUrlFor} from '../lib/image-url'
-import BlockText from './block-text'
+import { Link } from "gatsby";
+import React from "react";
+import { cn, buildImageObj } from "../lib/helpers";
+import { imageUrlFor } from "../lib/image-url";
+import BlockText from "./block-text";
 
-import styles from './project-preview.module.css'
-import {responsiveTitle3} from './typography.module.css'
+import styles from "./project-preview.module.css";
+import { responsiveTitle3 } from "./typography.module.css";
 
-function ProjectPreview (props) {
+function ProjectPreview(props) {
   return (
     <Link className={styles.root} to={`/project/${props.slug.current}`}>
       <div className={styles.leadMediaThumb}>
-        {props.mainImage && props.mainImage.asset && (
+        {props.label && props.label.asset && (
           <img
-            src={imageUrlFor(buildImageObj(props.mainImage))
+            src={imageUrlFor(buildImageObj(props.label))
               .width(600)
               .height(Math.floor((9 / 16) * 600))
               .url()}
-            alt={props.mainImage.alt}
+            alt={props.label.alt}
           />
         )}
       </div>
@@ -28,7 +28,7 @@ function ProjectPreview (props) {
         </div>
       )}
     </Link>
-  )
+  );
 }
 
-export default ProjectPreview
+export default ProjectPreview;

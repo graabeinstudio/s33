@@ -11,11 +11,11 @@ export const query = graphql`
     batch: sanityBatch(id: { eq: $id }) {
       id
       brewedAt
-      typeOfBeer {
+      type {
         _id
         name
       }
-      mainImage {
+      label {
         crop {
           _key
           _type
@@ -41,7 +41,6 @@ export const query = graphql`
       slug {
         current
       }
-      _rawBody
     }
   }
 `;

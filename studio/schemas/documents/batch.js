@@ -64,7 +64,7 @@ export default {
       const dateSegment = format(brewedAt, "YYYY/MM");
       const path = `/${dateSegment}/${slug.current}/`;
       return {
-        name,
+        title: name,
         media,
         subtitle: brewedAt ? path : "Missing brew date"
       };

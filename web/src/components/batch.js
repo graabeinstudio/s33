@@ -1,20 +1,17 @@
 import { format, distanceInWords, differenceInDays } from "date-fns";
 import React from "react";
-import { Link } from "gatsby";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
-import BlockContent from "./block-content";
 import Container from "./container";
-import RoleList from "./role-list";
 
-import styles from "./project.module.css";
+import styles from "./batch.module.css";
 
-function Project(props) {
-  const { _rawBody, name, categories, label, brewedAt } = props;
+function Batch(props) {
+  const { name, type, label, brewedAt } = props;
   return (
     <article className={styles.root}>
       {props.label && label.asset && (
-        <div className={styles.mainImage}>
+        <div className={styles.label}>
           <img
             src={imageUrlFor(buildImageObj(label))
               .width(1200)
@@ -28,8 +25,7 @@ function Project(props) {
       <Container>
         <div className={styles.grid}>
           <div className={styles.mainContent}>
-            <h1 className={styles.title}>{name}</h1>
-            {_rawBody && <BlockContent blocks={_rawBody || []} />}
+            <h1 className={styles.name}>{name}</h1>
           </div>
           <aside className={styles.metaContent}>
             {brewedAt && (
@@ -39,13 +35,12 @@ function Project(props) {
                   : format(new Date(brewedAt), "MMMM Do YYYY")}
               </div>
             )}
-            {members && members.length > 0 && <RoleList items={members} title="Project members" />}
-            {categories && categories.length > 0 && (
-              <div className={styles.categories}>
-                <h3 className={styles.categoriesHeadline}>Categories</h3>
+            {type && type.length > 0 && (
+              <div className={styles.typesOfBeer}>
+                <h3 className={styles.typesOfBeerHeadline}>Type</h3>
                 <ul>
-                  {categories.map(category => (
-                    <li key={category._id}>{category.title}</li>
+                  {typesOfBeer.map(typeOfBeer => (
+                    <li key={typeOfBeer._id}>{typeOfBeer.name}</li>
                   ))}
                 </ul>
               </div>
@@ -57,4 +52,4 @@ function Project(props) {
   );
 }
 
-export default Project;
+export default Batch;

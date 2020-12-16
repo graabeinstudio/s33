@@ -2,14 +2,13 @@ import { Link } from "gatsby";
 import React from "react";
 import { cn, buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
-import BlockText from "./block-text";
 
-import styles from "./project-preview.module.css";
+import styles from "./batch-preview.module.css";
 import { responsiveTitle3 } from "./typography.module.css";
 
-function ProjectPreview(props) {
+function BatchPreview(props) {
   return (
-    <Link className={styles.root} to={`/project/${props.slug.current}`}>
+    <Link className={styles.root} to={`/batch/${props.slug.current}`}>
       <div className={styles.leadMediaThumb}>
         {props.label && props.label.asset && (
           <img
@@ -21,14 +20,9 @@ function ProjectPreview(props) {
           />
         )}
       </div>
-      <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>
-      {props._rawExcerpt && (
-        <div className={styles.excerpt}>
-          <BlockText blocks={props._rawExcerpt} />
-        </div>
-      )}
+      <h3 className={cn(responsiveTitle3, styles.name)}>{props.name}</h3>
     </Link>
   );
 }
 
-export default ProjectPreview;
+export default BatchPreview;

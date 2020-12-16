@@ -4,8 +4,8 @@
   text-decoration: none;
 }
 
-.title {
-  composes: responsiveTitle1 from './typography.module.css';
+.name {
+  composes: responsiveTitle1 from "./typography.module.css";
 }
 
 .leadMediaThumb {
@@ -23,20 +23,10 @@
   }
 }
 
-.title {
+.name {
   @media (hover: hover) {
     @nest .root:hover & {
       text-decoration: underline;
     }
-  }
-}
-
-.excerpt {
-  @nest & p {
-    margin: 0.5em 0;
-  }
-
-  @nest & strong {
-    font-weight: 600;
   }
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
-import Project from "../components/project";
+import Batch from "../components/batch";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 
@@ -58,7 +58,7 @@ const BatchTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {batch && <Project {...batch} />}
+      {batch && <Batch {...batch} />}
     </Layout>
   );
 };

@@ -1,15 +1,15 @@
-import React from 'react'
-import {graphql} from 'gatsby'
+import React from "react";
+import { graphql } from "gatsby";
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
-} from '../lib/helpers'
-import Container from '../components/container'
-import GraphQLErrorList from '../components/graphql-error-list'
-import ProjectPreviewGrid from '../components/project-preview-grid'
-import SEO from '../components/seo'
-import Layout from '../containers/layout'
+} from "../lib/helpers";
+import Container from "../components/container";
+import GraphQLErrorList from "../components/graphql-error-list";
+import BatchPreviewGrid from "../components/batch-preview-grid";
+import SEO from "../components/seo";
+import Layout from "../containers/layout";
 
 export const query = graphql`
   query IndexPageQuery {
@@ -55,30 +55,30 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
 const IndexPage = props => {
-  const {data, errors} = props
+  const { data, errors } = props;
 
   if (errors) {
     return (
       <Layout>
         <GraphQLErrorList errors={errors} />
       </Layout>
-    )
+    );
   }
 
-  const site = (data || {}).site
+  const site = (data || {}).site;
   const batchNodes = (data || {}).batches
     ? mapEdgesToNodes(data.batches)
-      .filter(filterOutDocsWithoutSlugs)
-      .filter(filterOutDocsPublishedInTheFuture)
-    : []
+        .filter(filterOutDocsWithoutSlugs)
+        .filter(filterOutDocsPublishedInTheFuture)
+    : [];
 
   if (!site) {
     throw new Error(
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
-    )
+    );
   }
 
   return (
@@ -87,15 +87,11 @@ const IndexPage = props => {
       <Container>
         <h1 hidden>{site.title}</h1>
         {batchNodes && (
-          <ProjectPreviewGrid
-            title='Latest batches'
-            nodes={batchNodes}
-            browseMoreHref='/batches/'
-          />
+          <BatchPreviewGrid title="Latest batches" nodes={batchNodes} browseMoreHref="/batches/" />
         )}
       </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;

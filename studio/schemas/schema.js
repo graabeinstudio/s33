@@ -6,7 +6,6 @@ import schemaTypes from "all:part:@sanity/base/schema-type";
 
 // Document types
 import batch from "./documents/batch";
-import person from "./documents/person";
 import typeOfBeer from "./documents/typeOfBeer";
 import siteSettings from "./documents/siteSettings";
 
@@ -26,7 +25,6 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     typeOfBeer,
-    person,
     batch,
     siteSettings
   ])

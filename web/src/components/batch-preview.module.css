@@ -16,17 +16,26 @@
 }
 
 .leadMediaThumb {
-  position: relative;
-  padding-bottom: 66.666%;
-  background: #eee;
-
+  max-height: 375px;
   @nest & img {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+}
+.leadMediaThumb:hover {
+  max-height: unset;
+
+  position: fixed;
+  height: 60vh;
+  width: 60vw;
+  z-index: 100;
+  top: 20vh;
+  left: 20vw;
+  @nest & img {
+    position: relative;
   }
 }
 

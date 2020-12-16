@@ -19,7 +19,7 @@ export const query = graphql`
       keywords
     }
     batches: allSanityBatch(
-      sort: { fields: [brewedAt], order: DESC }
+      sort: { fields: [number], order: DESC}
       filter: { slug: { current: { ne: null } }, brewedAt: { ne: null } }
     ) {
       edges {

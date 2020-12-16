@@ -18,7 +18,7 @@ export const query = graphql`
       description
       keywords
     }
-    projects: allSanitySampleProject(
+    batches: allSanityBatch(
       limit: 6
       sort: { fields: [brewedAt], order: DESC }
       filter: { slug: { current: { ne: null } }, brewedAt: { ne: null } }
@@ -48,7 +48,7 @@ export const query = graphql`
             }
             alt
           }
-          title
+          name
           _rawExcerpt
           slug {
             current
@@ -71,8 +71,8 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site;
-  const projectNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects)
+  const batchNodes = (data || {}).batches
+    ? mapEdgesToNodes(data.batches)
         .filter(filterOutDocsWithoutSlugs)
         .filter(filterOutDocsPublishedInTheFuture)
     : [];
@@ -87,12 +87,12 @@ const IndexPage = props => {
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
-        <h1 hidden>Welcome to {site.title}</h1>
-        {projectNodes && (
+        <h1 hidden>{site.title}</h1>
+        {batchNodes && (
           <ProjectPreviewGrid
-            title="Latest projects"
-            nodes={projectNodes}
-            browseMoreHref="/archive/"
+            title="Latest batches"
+            nodes={batchNodes}
+            browseMoreHref="/batches/"
           />
         )}
       </Container>

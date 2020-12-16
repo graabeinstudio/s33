@@ -25,9 +25,9 @@ async function createBatchPages(graphql, actions) {
 
   if (result.errors) throw result.errors;
 
-  const projectEdges = (result.data.allSanityBatch || {}).edges || [];
+  const batchEdges = (result.data.allSanityBatch || {}).edges || [];
 
-  projectEdges
+  batchEdges
     .filter(edge => !isFuture(edge.node.brewedAt))
     .forEach(edge => {
       const id = edge.node.id;

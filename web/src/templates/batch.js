@@ -1,10 +1,10 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Container from "../components/container";
-import GraphQLErrorList from "../components/graphql-error-list";
-import Batch from "../components/batch";
-import SEO from "../components/seo";
-import Layout from "../containers/layout";
+import React from 'react'
+import {graphql} from 'gatsby'
+import Container from '../components/container'
+import GraphQLErrorList from '../components/graphql-error-list'
+import Batch from '../components/batch'
+import SEO from '../components/seo'
+import Layout from '../containers/layout'
 
 export const query = graphql`
   query BatchTemplateQuery($id: String!) {
@@ -41,17 +41,19 @@ export const query = graphql`
       slug {
         current
       }
+      ibu
+      alcohol
     }
   }
-`;
+`
 
 const BatchTemplate = props => {
-  const { data, errors } = props;
-  const batch = data && data.batch;
+  const {data, errors} = props
+  const batch = data && data.batch
   return (
     <Layout>
-      {errors && <SEO title="GraphQL Error" />}
-      {batch && <SEO title={batch.name || "Untitled"} />}
+      {errors && <SEO title='GraphQL Error' />}
+      {batch && <SEO title={batch.name || 'Untitled'} />}
 
       {errors && (
         <Container>
@@ -60,7 +62,7 @@ const BatchTemplate = props => {
       )}
       {batch && <Batch {...batch} />}
     </Layout>
-  );
-};
+  )
+}
 
-export default BatchTemplate;
+export default BatchTemplate

@@ -26,17 +26,7 @@
   }
 }
 .leadMediaThumb:hover {
-  max-height: unset;
-
-  position: fixed;
-  height: 60vh;
-  width: 60vw;
-  z-index: 100;
-  top: 20vh;
-  left: 20vw;
-  @nest & img {
-    position: relative;
-  }
+  transform: scale(1.1);
 }
 
 .name {

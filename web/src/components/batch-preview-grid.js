@@ -1,10 +1,9 @@
-import { Link } from "gatsby";
-import React from "react";
-import BatchPreview from "./batch-preview";
+import React from 'react'
+import BatchPreview from './batch-preview'
 
-import styles from "./batch-preview-grid.module.css";
+import styles from './batch-preview-grid.module.css'
 
-function BatchPreviewGrid(props) {
+function BatchPreviewGrid (props) {
   return (
     <div className={styles.root}>
       {props.name && <h2 className={styles.headline}>{props.name}</h2>}
@@ -16,19 +15,14 @@ function BatchPreviewGrid(props) {
             </li>
           ))}
       </ul>
-      {props.browseMoreHref && (
-        <div className={styles.browseMoreNav}>
-          <Link to={props.browseMoreHref}>Browse more</Link>
-        </div>
-      )}
     </div>
-  );
+  )
 }
 
 BatchPreviewGrid.defaultProps = {
-  name: "",
+  name: '',
   nodes: [],
-  browseMoreHref: ""
-};
+  browseMoreHref: ''
+}
 
-export default BatchPreviewGrid;
+export default BatchPreviewGrid

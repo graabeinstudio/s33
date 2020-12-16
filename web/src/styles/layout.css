@@ -6,6 +6,11 @@ html {
   line-height: var(--font-base-line-height);
 }
 
+@font-face {
+  font-family: "Dense Regular";
+  src: url("../fonts/Dense-Regular.otf");
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   background: var(--color-white);

@@ -7,7 +7,7 @@ export default {
   fields: [
     {
       name: "name",
-      title: "Navn",
+      title: "Name",
       type: "string"
     },
     {

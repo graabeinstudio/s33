@@ -1,5 +1,6 @@
 @import "../styles/custom-media.css";
 @import "../styles/custom-properties.css";
+@import '../styles/sharp.css';
 
 .root {
   display: flex;
@@ -20,9 +21,12 @@
 }
 
 .mainImage {
+  min-width: 60vw;
   @nest & img {
     object-fit: contain;
     max-width: 100vw;
+    -webkit-animation: sharp 1.5s;
+    animation: sharp 1.5s;
 
     @media (--media-min-medium) {
       object-fit: cover;
@@ -33,6 +37,7 @@
 }
 
 .mainContent {
+  min-width: 20vw;
   composes: responsiveTitle2 from "./typography.module.css";
   @nest & a {
     color: var(--color-accent);

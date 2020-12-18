@@ -12,8 +12,15 @@
 
 .box {
   composes: title1 from "./typography.module.css";
-  padding: 20px;
-  margin: 20px;
+  padding: 10px 0;
+  margin: 10px 0;
+}
+
+@media (--media-min-small) {
+  .box {
+    padding: 20px;
+    margin: 20px;
+  }
 }
 
 .box > p,

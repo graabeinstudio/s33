@@ -1,61 +1,61 @@
-import React from "react";
-import { format } from "date-fns";
-import nb from "date-fns/locale/nb";
-import styles from "./stats.module.css";
+import React from 'react'
+import {format} from 'date-fns'
+import nb from 'date-fns/locale/nb'
+import styles from './stats.module.css'
 
-function Stats({ batches }) {
+function Stats ({batches}) {
   const meanAlc = (batches.reduce((sum, batch) => sum + batch.alcohol, 0) / batches.length).toFixed(
     1
-  );
-  const maxBatch = batches.reduce((max, batch) => Math.max(max, batch.number), 0);
+  )
+  const maxBatch = batches.reduce((max, batch) => Math.max(max, batch.number), 0)
   const maxAlc = batches.reduce(
     (max, batch) => {
       if (max.alcohol > batch.alcohol) {
-        return max;
+        return max
       }
-      return batch;
+      return batch
     },
     {
       alcohol: 0
     }
-  );
+  )
   const minAlc = batches.reduce(
     (min, batch) => {
       if (min.alcohol < batch.alcohol) {
-        return min;
+        return min
       }
-      return batch;
+      return batch
     },
     {
       alcohol: 100
     }
-  );
+  )
   const distinctTypes = Object.values(
     batches.reduce((types, batch) => {
-      batch.type.forEach(({ name }) => {
-        types[name] = { name, num: ((types[name] || {}).num || 0) + 1 };
-      });
-      return types;
+      batch.type.forEach(({name}) => {
+        types[name] = {name, num: ((types[name] || {}).num || 0) + 1}
+      })
+      return types
     }, {})
-  ).sort(function compare(a, b) {
+  ).sort(function compare (a, b) {
     if (a.num < b.num) {
-      return 1;
+      return 1
     }
     if (a.num > b.num) {
-      return -1;
+      return -1
     }
-    return 0;
-  });
+    return 0
+  })
 
   return (
     <div className={styles.grid}>
       <section className={styles.box}>
         <p>
-          Vi brygget vår første batch i{" "}
+          Vi brygget vår første batch i{' '}
           <strong>
-            {format(new Date(batches[batches.length - 1].brewedAt), "MMMM YYYY", { locale: nb })}
+            {format(new Date(batches[batches.length - 1].brewedAt), 'MMMM YYYY', {locale: nb})}
           </strong>
-          . Siden da har det blitt totalt <strong>{maxBatch * 20}</strong> liter øl fordelt på{" "}
+          . Siden da har det blitt totalt <strong>{maxBatch * 20}</strong> liter øl fordelt på{' '}
           <strong>{maxBatch}</strong> brygg.
         </p>
       </section>
@@ -67,13 +67,13 @@ function Stats({ batches }) {
           Gjennomsnitt: <strong>{meanAlc}%</strong>
         </p>
         <p>
-          Sterkeste øl:{" "}
+          Sterkeste øl:{' '}
           <strong>
             {maxAlc.name} ({maxAlc.alcohol}%)
           </strong>
         </p>
         <p>
-          Svakeste øl:{" "}
+          Svakeste øl:{' '}
           <strong>
             {minAlc.name} ({minAlc.alcohol}%)
           </strong>
@@ -102,11 +102,11 @@ function Stats({ batches }) {
         </ol>
       </section>
     </div>
-  );
+  )
 }
 
 Stats.defaultProps = {
   batches: []
-};
+}
 
-export default Stats;
+export default Stats

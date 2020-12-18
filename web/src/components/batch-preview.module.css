@@ -1,5 +1,5 @@
 @import "../styles/custom-media.css";
-@import '../styles/sharp.css';
+@import "../styles/sharp.css";
 
 .root {
   display: block;
@@ -30,6 +30,9 @@
 }
 .leadMediaThumb:hover {
   transform: scale(1.1);
+  @media (--media-min-small) {
+    transform: none;
+  }
 }
 
 .name {

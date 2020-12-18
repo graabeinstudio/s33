@@ -7,7 +7,7 @@ import {imageUrlFor} from '../lib/image-url'
 import styles from './batch.module.css'
 
 function Batch (props) {
-  const {name, label, brewedAt, ibu, alcohol, type} = props
+  const {name, label, brewedAt, ibu, alcohol, type, number} = props
   return (
     <article className={styles.root}>
       {props.label && label.asset && (
@@ -24,8 +24,8 @@ function Batch (props) {
       <div className={styles.grid}>
         <div className={styles.mainContent}>
           <h1 className={styles.name}>{name}</h1>
+          {number && <p>Batch #{number}</p>}
           {type && type.map(t => <p>{t.name}</p>)}
-
           {ibu && <p>IBU: {ibu}</p>}
           <p>Alkohol: {alcohol} %</p>
 

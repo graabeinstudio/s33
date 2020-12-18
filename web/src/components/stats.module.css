@@ -1,0 +1,22 @@
+@import "../styles/custom-media.css";
+
+.grid {
+  margin: 20px;
+  padding: 0px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.box {
+  composes: title1 from "./typography.module.css";
+  padding: 20px;
+  margin: 20px;
+}
+
+.box > p,
+.box > ol {
+  margin: 0;
+}

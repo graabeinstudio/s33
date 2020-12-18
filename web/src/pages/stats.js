@@ -1,18 +1,14 @@
 import React from "react";
 import { graphql } from "gatsby";
-import {
-  mapEdgesToNodes,
-  filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture
-} from "../lib/helpers";
+import { mapEdgesToNodes } from "../lib/helpers";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
-import BatchPreviewGrid from "../components/batch-preview-grid";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
+import Stats from "../components/stats";
 
 export const query = graphql`
-  query IndexPageQuery {
+  query StatsPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
@@ -24,40 +20,21 @@ export const query = graphql`
     ) {
       edges {
         node {
-          id
-          label {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-            }
-            alt
-          }
           name
-          slug {
-            current
+          brewedAt
+          type {
+            name
           }
+          alcohol
+          number
+          ibu
         }
       }
     }
   }
 `;
 
-const IndexPage = props => {
+const StatsPage = props => {
   const { data, errors } = props;
 
   if (errors) {
@@ -69,11 +46,7 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site;
-  const batchNodes = (data || {}).batches
-    ? mapEdgesToNodes(data.batches)
-        .filter(filterOutDocsWithoutSlugs)
-        .filter(filterOutDocsPublishedInTheFuture)
-    : [];
+  const batchNodes = (data || {}).batches ? mapEdgesToNodes(data.batches) : [];
 
   if (!site) {
     throw new Error(
@@ -86,12 +59,10 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>{site.title}</h1>
-        {batchNodes && (
-          <BatchPreviewGrid title="Latest batches" nodes={batchNodes} browseMoreHref="/batches/" />
-        )}
+        {batchNodes && <Stats title="Statistikk" batches={batchNodes} />}
       </Container>
     </Layout>
   );
 };
 
-export default IndexPage;
+export default StatsPage;

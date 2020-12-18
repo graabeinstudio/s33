@@ -20,6 +20,17 @@ module.exports = {
         watchMode: !isProd,
         overlayDrafts: !isProd && token
       }
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`
+          },
+          `gatsby-remark-lazy-load`
+        ]
+      }
     }
   ]
 }

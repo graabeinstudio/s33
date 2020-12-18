@@ -9,9 +9,9 @@ function BatchPreviewGrid (props) {
       {props.name && <h2 className={styles.headline}>{props.name}</h2>}
       <ul className={styles.grid}>
         {props.nodes &&
-          props.nodes.map(node => (
+          props.nodes.map((node, index) => (
             <li key={node.id}>
-              <BatchPreview {...node} />
+              <BatchPreview {...node} lazyload={index > 10} />
             </li>
           ))}
       </ul>

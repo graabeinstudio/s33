@@ -1,17 +1,21 @@
-import { Link } from "gatsby";
-import React from "react";
+import {Link} from 'gatsby'
+import React from 'react'
 
-import styles from "./nav-bar.module.css";
+import styles from './nav-bar.module.css'
 
 const NavBar = () => (
   <nav className={styles.navBar}>
     <div className={styles.link}>
-      <Link to="./">Etiketter</Link>
+      <Link to='/' activeStyle={{color: 'var(--color-accent)'}}>
+        Etiketter
+      </Link>
     </div>
     <div className={styles.link}>
-      <Link to="./stats">Statistikk</Link>
+      <Link to='/stats' activeStyle={{color: 'var(--color-accent)'}}>
+        Statistikk
+      </Link>
     </div>
   </nav>
-);
+)
 
-export default NavBar;
+export default NavBar

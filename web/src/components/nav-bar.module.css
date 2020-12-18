@@ -2,10 +2,6 @@
 @import "../styles/custom-properties.css";
 
 .navBar {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 10px;
   display: flex;
 }
 
@@ -24,4 +20,8 @@
       }
     }
   }
+}
+
+.active {
+  color: var(--color-accent);
 }

@@ -1,29 +1,26 @@
 @import "../styles/custom-media.css";
 
-.grid {
-  margin: 20px;
-  padding: 0px;
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 .box {
+  margin: 0 auto;
+}
+
+.cardCollection{
+  display: flex;
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: auto;
+}
+
+.intro {
   composes: title1 from "./typography.module.css";
-  padding: 10px 0;
-  margin: 10px 0;
+  text-align: center;
 }
 
-@media (--media-min-small) {
-  .box {
-    padding: 20px;
-    margin: 20px;
-  }
-}
-
-.box > p,
-.box > ol {
-  margin: 0;
+.category {
+  composes: title1 from "./typography.module.css";
+  color: var(--color-accent);
+  margin: 20px;
 }

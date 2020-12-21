@@ -18,7 +18,6 @@ function BatchPreview (props) {
                 .width(600)
                 .url()}
               alt={props.label.alt}
-              data-lazy='laxy'
             />
           ) : (
             <img

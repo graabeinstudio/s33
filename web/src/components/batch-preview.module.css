@@ -29,9 +29,10 @@
   }
 }
 .leadMediaThumb:hover {
-  transform: scale(1.1);
+  transform: none;
+
   @media (--media-min-small) {
-    transform: none;
+    transform: scale(1.1);
   }
 }
 

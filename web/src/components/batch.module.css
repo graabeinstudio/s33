@@ -1,6 +1,6 @@
 @import "../styles/custom-media.css";
 @import "../styles/custom-properties.css";
-@import '../styles/sharp.css';
+@import "../styles/sharp.css";
 
 .root {
   display: flex;
@@ -21,18 +21,23 @@
 }
 
 .mainImage {
-  min-width: 60vw;
+  width: 60vw;
+
   @nest & img {
+    width: 100%;
+    height: 100%;
     object-fit: contain;
-    max-width: 100vw;
     -webkit-animation: sharp 1.5s;
     animation: sharp 1.5s;
 
-    @media (--media-min-medium) {
+    @media (--media-max-small) {
       object-fit: cover;
       width: 100%;
       height: 100%;
     }
+  }
+  @media (--media-max-small) {
+    width: 100vw;
   }
 }
 

@@ -2,12 +2,6 @@
 
 Website for S33 Kjellerbryggeri
 
-## What you have
-
-- A blazing fast portfolio with [Gatsby.js](https://gatsbyjs.org)
-- Structured content using [Sanity.io](https://www.sanity.io)
-- Global deployment on [Netlify](https://netlify.com)
-
 ## Quick start
 
 1. Clone this repository from your GitHub account

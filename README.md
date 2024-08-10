@@ -1,6 +1,8 @@
 # S33
 
-Website for S33 Kjellerbryggeri
+Website for S33 Kjellerbryggeri `s33.no`
+
+Show all the beers and more from the basement.
 
 ## Quick start
 
